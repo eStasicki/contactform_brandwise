@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="main-form">
-            <form id="myform" method="POST">
+            <form id="ajaxForm" method="POST">
                 <div class="form-group">
                     <label for="nameInput">Imię i nazwisko</label>
                     <input type="text" class="form-control" id="nameInput" name="nameInput">
@@ -43,12 +43,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_pl.min.js"></script>
     <script>
-        // just for the demos, avoids form submit
         jQuery.validator.setDefaults({
             debug: false,
         });
 
-        $("#myform").validate({
+        $("#ajaxForm").validate({
             ignore: ".ignore",
             rules: {
                 nameInput: {
@@ -64,19 +63,10 @@
                 }
             },
             submitHandler: function (form) {
-                $.ajax({
-                    type: 'POST',
-                    url: 'success_page.php',
-                    data: $(form).serialize(),
-                    dataType: "text",
-                    success: function(result) {
-                        console.log(result);
-                    },
-                    error: function() {
-                        alert('Błąd wysyłania');
-                    }
+                $.post("success_page.php", $("#ajaxForm").serialize(), function(data) {
+                    $(".main-form").remove();
+                    $("#formSuccess").addClass("showed").html(data);
                 });
-                return false;
             }
         });
     </script>
