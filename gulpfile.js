@@ -30,12 +30,12 @@ gulp.task('browser-sync', function() {
 // will auto-update browsers
 gulp.task('sass', function () {
 
-  var processors = [
-    pxtoviewport({
-        viewportWidth: 1920,
-        viewportUnit: 'vw',
-    })
-  ];
+  // var processors = [
+  //   pxtoviewport({
+  //       viewportWidth: 1920,
+  //       viewportUnit: 'vw',
+  //   })
+  // ];
   
   return gulp.src([
       'sass/main.scss',
@@ -49,11 +49,11 @@ gulp.task('sass', function () {
       flexbox: true
     }))
     .pipe(concat('styles.css'))
-    .pipe(postcss(processors))
+    //.pipe(postcss())
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./css'))
     .pipe(reload({stream:true}))
-    .pipe(notify({ message: '\n\n✅  ===> Compilation completed!\n', onLast: true }));
+    //.pipe(notify({ message: '\n\n✅  ===> Compilation completed!\n', onLast: true }));
 });
  
 // Default task to be run with `gulp`

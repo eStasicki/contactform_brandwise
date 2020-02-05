@@ -13,4 +13,29 @@ body {
     background: #EEE;
     padding: 70px 50px;
     border-radius: 30px;
+
+    label {
+            &.error:not(.valid) {
+            display: block;
+            padding: 10px 0;
+            font-size: 15px;
+            background: rgba(#ff0606, 0.3);
+            padding: 8px;
+            border-radius: 3px;
+            margin: 15px 0 0 0;
+            color: rgba(#ff0606, 1);
+        }
+    }
+}
+
+#formSuccess {
+    &.showed {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgba(#0eb9f6, 0.3);
+        padding: 70px 50px;
+        border-radius: 30px;
+    }
 }
