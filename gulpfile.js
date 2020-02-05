@@ -21,7 +21,7 @@ gulp.task('browser-sync', function() {
   //initialize browsersync
   browserSync.init(files, {
   //browsersync with a php server
-  proxy: "localhost/contactform_brandwise",
+  proxy: "brandwise-formularz.local",
   notify: true
   });
 });
