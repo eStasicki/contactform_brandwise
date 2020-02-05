@@ -13,9 +13,9 @@ var notify = require('gulp-notify');
 gulp.task('browser-sync', function() {
   //watch files
   var files = [
-  './sass/*.scss',
-  './*.php',
-  './*/*.php'
+  'sass/*.scss',
+  '*.php',
+  '*/*.php'
   ];
 
   //initialize browsersync
